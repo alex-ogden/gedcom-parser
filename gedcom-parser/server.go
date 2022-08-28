@@ -16,7 +16,6 @@ func runServer(srv_host string) {
 	fileServer := http.FileServer(http.Dir(STATIC_DIR))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/health", handleHealthCheck)
-	http.HandleFunc("/upload", handleUpload)
 
 	// Start the server
 	log.Printf("Starting web server on: %s\n", srv_host)
