@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css"/>
+    <title>GoGedcom | Gedcom Viewer</title>
+
+  </head>
+  <body>
+    <div class="allContent">
+      <h1>GEDCOM Parser</h1>
+      <h4>GEDCOM -> Family Tree converter</h4>
+      <p>Upload your file and press upload</p>
+      <form enctype="multipart/form-data" action="/upload" method="post">
+        <input id='gedcomFile' type="file" name="gedcomFile">
+        <input id="submit" type="submit" value="upload" />
+      </form>
+    </div>
+  </body>
+</html>
