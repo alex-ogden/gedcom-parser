@@ -5,9 +5,8 @@ import (
 	"os"
 )
 
-type DownloadData struct {
-	FilePath string
-	FileName string
+type RenderData struct {
+	PeopleList string
 }
 
 // Set max upload size to be 10MB (very large GEDCOM file)
