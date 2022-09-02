@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"mime/multipart"
+	"strings"
 
 	"github.com/iand/gedcom"
 )
@@ -20,9 +21,16 @@ func parseFile(data []byte, header *multipart.FileHeader) (string, error) {
 
 	for _, record := range decodedGedcom.Individual {
 		if len(record.Name) > 0 {
-			log.Printf("Found name: %s", record.Name[0].Name)
-			peopleList += fmt.Sprintf("%s\n", record.Name[0].Name)
+			// Print person and their sex
+			log.Printf("Found: %s (%s)", record.Name[0].Name, record.Sex)
+
+			// Add person (and sex) to string of people peopleList
+			peopleList += fmt.Sprintf(
+				"%s (%s) ",
+				record.Name[0].Name,
+				record.Sex)
 		}
 	}
+	peopleList = strings.ReplaceAll(peopleList, "/", "")
 	return peopleList, nil
 }
